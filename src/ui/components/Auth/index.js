@@ -32,7 +32,7 @@ export default class Auth extends Component {
   }
 
   submitPIN() {
-
+    this.props.onSubmit(this.state.oauth_token, this.state.pin);
   }
 
   render() {

@@ -1,18 +1,31 @@
 import { ipcMain } from "electron";
 import TweetStream from "~/lib/TweetStream";
 import storage from "electron-json-storage";
-import RequestTokenFactory from "~/lib/Twitter/Auth/RequestTokenFactory";
+import OAuthFactory from "~/lib/Twitter/Auth/OAuthFactory";
 
-const stream = new TweetStream();
 let sender;
+let stream;
 let consumerKeys = {
-    consumer_key: process.env.CONSUMER_KEY,
-    consumer_secret: process.env.CONSUMER_SECRET
+  consumer_key: process.env.CONSUMER_KEY,
+  consumer_secret: process.env.CONSUMER_SECRET
 };
-let factory = new RequestTokenFactory(consumerKeys);
+let factory = new OAuthFactory(consumerKeys);
 
 ipcMain.on("init", (evt) => {
-  sender = evt.sender;
+  // do not re-initialize stream
+  if (stream) return;
+
+  storage.get("access_tokens", (err, tokens) => {
+    stream = new TweetStream(consumerKeys, tokens);
+    stream.getTweets().subscribe((payload) => {
+      if (!sender) return;
+      if (payload.type === "error") {
+        sender.send("error", payload);
+      } else {
+        sender.send("new-tweet", payload);
+      }
+    });
+  });
 });
 
 ipcMain.on("storage-get", (evt, key) => {
@@ -33,21 +46,31 @@ ipcMain.on("storage-has", (evt, key) => {
   });
 });
 
-ipcMain.on("request-token", (evt) => {
+ipcMain.on("storage-set", (evt, key, value) => {
+  storage.set(key, value, (err) => {
+    if (err) {
+      throw err;
+    }
+    evt.sender.send("storage-set", key);
+  });
+});
+
+ipcMain.on("request-token-get", (evt) => {
   factory.requestToken().then((oauthToken) => {
-    evt.sender.send("request-token", oauthToken);
+    evt.sender.send("request-token-get", oauthToken);
   }, (err) => {
-      console.error(err);
+    console.error(err);
+  });
+});
+
+ipcMain.on("access-token-set-pin", (evt, requestToken, pin) => {
+  factory.accessTokenFromPIN(requestToken, pin).then((tokens) => {
+    evt.sender.send("access-token-set-pin", tokens);
+  }, (err) => {
+    console.error(err);
   });
 });
 
 module.exports = function() {
-  stream.getTweets().subscribe((payload) => {
-    if (!sender) return;
-    if (payload.type === "error") {
-      sender.send("error", payload);
-    } else {
-      sender.send("new-tweet", payload);
-    }
-  });
-}
+  // do nothing
+};
