@@ -1,5 +1,5 @@
 [root]
 indent_style = space
 
-[*.js]
+[*.{js,jsx}]
 indent_size = 2

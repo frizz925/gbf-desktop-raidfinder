@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>GBF Desktop Raidfinder</title>
+    <title>GBF Desktop Raidfinder v1.0</title>
     <link rel="stylesheet" href="css/fabric.min.css">
     <link rel="stylesheet" href="css/fabric.components.min.css">
     <script type="text/javascript">
-        window.ipc = require("electron").ipcRenderer;
+        let electron = require("electron");
+        window.ipc = electron.ipcRenderer;
+        window.shell = electron.shell;
     </script>
 </head>
 <body>
-    <div id="app"></div>
+    <div id="app" class="ms-font-m"></div>
     <script src="dist/bundle.js"></script>
 </body>
 </html>
