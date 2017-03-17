@@ -1,0 +1,56 @@
+{
+  "name": "desktop-raider",
+  "version": "1.0.0",
+  "description": "GBF raidfinder for desktop",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Frizz925/desktop-raider.git"
+  },
+  "keywords": [
+    "gbf",
+    "granblue",
+    "fantasy",
+    "raid",
+    "finder",
+    "raidfinder",
+    "twitter",
+    "tweet"
+  ],
+  "author": "Izra Faturrahman <Frizz925@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Frizz925/desktop-raider/issues"
+  },
+  "homepage": "https://github.com/Frizz925/desktop-raider#readme",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "electron-json-storage": "^3.0.1",
+    "lodash": "^4.17.4",
+    "office-ui-fabric-react": "^2.5.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "rxjs": "^5.2.0",
+    "twitter": "^1.7.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-plugin-root-import": "^5.0.0",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-react": "^6.23.0",
+    "browser-sync": "^2.18.8",
+    "devtron": "^1.4.0",
+    "eslint": "^3.17.1",
+    "eslint-plugin-react": "^6.10.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-notify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "webpack": "^2.2.1"
+  }
+}
