@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/fabric.components.min.css">
     <script type="text/javascript">
         let electron = require("electron");
+        window.clipboard = electron.clipboard;
         window.ipc = electron.ipcRenderer;
         window.shell = electron.shell;
     </script>

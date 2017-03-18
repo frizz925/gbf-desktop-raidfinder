@@ -5,6 +5,7 @@ import range from "lodash/range";
 
 export default class TweetStream {
   constructor(consumerKeys, accessTokens) {
+    console.log("TweetStream", consumerKeys, accessTokens);
     this.client = new Twitter({
       consumer_key: consumerKeys.consumer_key,
       consumer_secret: consumerKeys.consumer_secret,

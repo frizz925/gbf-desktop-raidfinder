@@ -30,6 +30,7 @@
     "dotenv": "^4.0.0",
     "electron-json-storage": "^3.0.1",
     "lodash": "^4.17.4",
+    "moment": "^2.17.1",
     "oauth": "^0.9.15",
     "office-ui-fabric-react": "^2.5.0",
     "query-string": "^4.3.2",

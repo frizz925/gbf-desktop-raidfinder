@@ -1,5 +1,5 @@
 import { ipcMain } from "electron";
-import TweetStream from "~/lib/TweetStream";
+import TweetStream from "~/lib/Twitter/TweetStream";
 import storage from "electron-json-storage";
 import OAuthFactory from "~/lib/Twitter/Auth/OAuthFactory";
 
@@ -12,10 +12,19 @@ let consumerKeys = {
 let factory = new OAuthFactory(consumerKeys);
 
 ipcMain.on("init", (evt) => {
+  sender = evt.sender;
+
   // do not re-initialize stream
   if (stream) return;
 
+  console.log("Main process", "init");
+
   storage.get("access_tokens", (err, tokens) => {
+    if (err) {
+      throw err;
+    }
+
+    console.log("Main process", "access_tokens", tokens);
     stream = new TweetStream(consumerKeys, tokens);
     stream.getTweets().subscribe((payload) => {
       if (!sender) return;
@@ -47,6 +56,7 @@ ipcMain.on("storage-has", (evt, key) => {
 });
 
 ipcMain.on("storage-set", (evt, key, value) => {
+  console.log("Main process", "storage-set", key, value);
   storage.set(key, value, (err) => {
     if (err) {
       throw err;
@@ -64,7 +74,9 @@ ipcMain.on("request-token-get", (evt) => {
 });
 
 ipcMain.on("access-token-set-pin", (evt, requestToken, pin) => {
+  console.log("Main process", requestToken, pin);
   factory.accessTokenFromPIN(requestToken, pin).then((tokens) => {
+    console.log("Main process", tokens);
     evt.sender.send("access-token-set-pin", tokens);
   }, (err) => {
     console.error(err);

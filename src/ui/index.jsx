@@ -23,18 +23,22 @@ let token = Rx.Observable.create((observer) => {
   });
 });
 
+window.ipc.on("access-token-set-pin", (evt, accessTokens) => {
+  console.log("GUI process", "access-token-set-pin", accessTokens);
+  window.ipc.send("storage-set", "access_tokens", accessTokens);
+});
+
 let onAuthSubmit = (requestToken, pin) => {
-  window.ipc.on("access-token-set-pin", (accessTokens) => {
-    window.ipc.send("storage-set", "access_tokens", accessTokens);
-  });
+  console.log("GUI process", requestToken, pin);
   window.ipc.send("access-token-set-pin", requestToken, pin);
 };
 
 let stream = new TweetStream();
 
 storageSet
-  .filter(({ key }) => key === "access_tokens")
+  .filter((key) => key === "access_tokens")
   .subscribe(() => {
+    console.log("GUI process", "storage-set", "access_tokens");
     window.location.reload();
   });
 
