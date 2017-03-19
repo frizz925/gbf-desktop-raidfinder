@@ -11,8 +11,6 @@ let consumerKeys = {
 };
 let factory = new OAuthFactory(consumerKeys);
 
-storage.remove("access_tokens");
-
 ipcMain.on("init", (evt) => {
   sender = evt.sender;
 
