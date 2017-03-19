@@ -2,7 +2,7 @@
     "presets": ["es2015", "stage-0", "react"],
     "plugins": [[
         "babel-plugin-root-import", [{
-            "rootPathSuffix": "dist"
+            "rootPathSuffix": "src"
         }]
     ]]
 }

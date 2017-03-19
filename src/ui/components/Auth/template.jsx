@@ -1,17 +1,28 @@
 import React from "react";
-import { TextField } from "office-ui-fabric-react/lib/TextField";
-import { PrimaryButton } from "office-ui-fabric-react/lib/Button";
+import AppBar from "material-ui/AppBar";
+import TextField from "material-ui/TextField";
+import RaisedButton from "material-ui/RaisedButton";
 
 export default function() {
   return (
     <div>
-      <h3 className="ms-fontSize-xl">GBF Desktop Raidfinder v1.0</h3>
-      <p className="ms-fontSize-m">
-        <a href="#" className="ms-fontColor-themePrimary" onClick={::this.openTwitter}>Login to Twitter</a>
-        <span> and enter the PIN here</span>
-      </p>
-      <TextField label="Authorization PIN" onChanged={::this.changePIN} />
-      <PrimaryButton onClick={::this.submitPIN}>Submit</PrimaryButton>
+      <AppBar title={window.document.title} showMenuIconButton={false} />
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-xs-12">
+            <h4 className="text-weight-300">
+              <a href="#" onClick={::this.openTwitter}>Login to Twitter</a>
+              <span> and enter the PIN here</span>
+            </h4>
+          </div> {/* .col */}
+        </div> {/* .row */}
+        <div className="row">
+          <div className="col-xs-2">
+            <TextField floatingLabelText="Authorization PIN" onChange={::this.changePIN} />
+            <RaisedButton label="Submit" primary={true} onClick={::this.submitPIN} />
+          </div> {/* .col */}
+        </div> {/* .row */}
+      </div> {/* .fluid-container */}
     </div>
   );
 }

@@ -7,7 +7,7 @@ const url = require("url");
 let win;
 
 function createWindow() {
-  win = new BrowserWindow({width: 600, height: 800})
+  win = new BrowserWindow({width: 400, height: 800});
 
   if (process.env.NODE_ENV === "production") {
     win.loadURL(url.format({
@@ -29,7 +29,7 @@ function createWindow() {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
-    win = null
+    win = null;
   });
 }
 

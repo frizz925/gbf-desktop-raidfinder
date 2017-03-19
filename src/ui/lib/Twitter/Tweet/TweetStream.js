@@ -1,5 +1,5 @@
 import Rx from "rxjs/Rx";
-import TweetChecker from "~/lib/TweetChecker";
+import TweetChecker from "~/lib/Twitter/Tweet/TweetChecker";
 const ipc = window.ipc;
 
 export default class TweetStream {

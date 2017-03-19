@@ -1,6 +1,6 @@
 import { ipcMain } from "electron";
-import TweetStream from "~/lib/Twitter/TweetStream";
 import storage from "electron-json-storage";
+import TweetStream from "~/lib/Twitter/Tweet/TweetStream";
 import OAuthFactory from "~/lib/Twitter/Auth/OAuthFactory";
 
 let sender;
@@ -10,6 +10,8 @@ let consumerKeys = {
   consumer_secret: process.env.CONSUMER_SECRET
 };
 let factory = new OAuthFactory(consumerKeys);
+
+storage.remove("access_tokens");
 
 ipcMain.on("init", (evt) => {
   sender = evt.sender;

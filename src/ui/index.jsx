@@ -1,11 +1,15 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import App from "~/ui/components/App";
-import Auth from "~/ui/components/Auth";
-import TweetStream from "~/ui/lib/Twitter/TweetStream";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import injectTapEventPlugin from "react-tap-event-plugin";
 import Rx from "rxjs/Rx";
 
+import App from "~/ui/components/App";
+import Auth from "~/ui/components/Auth";
+import TweetStream from "~/ui/lib/Twitter/Tweet/TweetStream";
+
 let root = document.getElementById("app");
+injectTapEventPlugin();
 
 let storageHas = Rx.Observable.create((observer) => {
   window.ipc.on("storage-has", (evt, key, hasKey) => {
@@ -45,13 +49,20 @@ storageSet
 storageHas
   .filter(({ key }) => key === "access_tokens")
   .subscribe(({ hasKey }) => {
+    let app;
     if (hasKey) {
-      ReactDOM.render(<App stream={stream} />, root);
+      app = <App stream={stream} />;
       window.ipc.send("init");
     } else {
-      ReactDOM.render(<Auth token={token} onSubmit={onAuthSubmit} />, root);
+      app = <Auth token={token} onSubmit={onAuthSubmit} />;
       window.ipc.send("request-token-get");
     }
+
+    ReactDOM.render((
+      <MuiThemeProvider>
+        {app}
+      </MuiThemeProvider>
+    ), root);
   });
 
 window.ipc.send("storage-has", "access_tokens");

@@ -1,5 +1,5 @@
 import { Component } from "react";
-import template from "./template";
+import template from "./template.jsx";
 import merge from "lodash/merge";
 
 export default class Auth extends Component {
@@ -24,7 +24,7 @@ export default class Auth extends Component {
     window.shell.openExternal(url);
   }
 
-  changePIN(pin) {
+  changePIN(evt, pin) {
     this.setState({
       oauth_token: this.state.oauth_token,
       pin
