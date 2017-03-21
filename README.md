@@ -2,6 +2,8 @@
 
 ## This application is still in **development**!
 
+![Imgur](http://i.imgur.com/CKLJM2W.png)
+
 This is a multi-platform desktop application inspired by [walfie](https://github.com/walfie) [gbf-raidfinder](https://github.com/walfie/gbf-raidfinder). This application uses the same [Twitter](https://twitter.com) [Streaming API](https://dev.twitter.com/streaming/overview) as gbf-raidfinder and thus provides the similar real-time update capability to find [Granblue Fantasy](http://granbluefantasy.jp/) raid tweets.
 
 One of the main goals of this application is to alleviate the problem with gbf-raidfinder frequent downtime due to high load.
