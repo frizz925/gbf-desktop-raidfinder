@@ -1,5 +1,5 @@
 {
-  "name": "desktop-raider",
+  "name": "gbf-desktop-raidfinder",
   "version": "1.0.0",
   "description": "GBF raidfinder for desktop",
   "main": "index.js",
