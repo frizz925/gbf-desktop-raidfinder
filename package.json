@@ -4,7 +4,8 @@
   "description": "GBF raidfinder for desktop",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "build": "cross-env NODE_ENV=production gulp build && electron-packager --out build --overwrite .",
+    "electron": "cross-env NODE_ENV=development gulp build && electron ."
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
   "homepage": "https://github.com/Frizz925/desktop-raider#readme",
   "dependencies": {
     "dotenv": "^4.0.0",
+    "electron": "^1.6.2",
     "electron-json-storage": "^3.0.1",
     "lodash": "^4.17.4",
     "material-ui": "^0.17.1",
@@ -50,7 +52,9 @@
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-0": "^6.22.0",
     "browser-sync": "^2.18.8",
+    "cross-env": "^3.2.4",
     "devtron": "^1.4.0",
+    "electron-packager": "^8.6.0",
     "eslint": "^3.17.1",
     "eslint-plugin-babel": "^4.1.1",
     "eslint-plugin-react": "^6.10.0",
@@ -59,6 +63,7 @@
     "gulp-notify": "^3.0.0",
     "gulp-sass": "^3.1.0",
     "gulp-util": "^3.0.8",
+    "uglifyjs-webpack-plugin": "^0.3.0",
     "webpack": "^2.2.1"
   }
 }

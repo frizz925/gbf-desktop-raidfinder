@@ -141,7 +141,7 @@ export default class App extends Component {
     });
 
     if (!filter) {
-      dialog.open = false;
+      dialog.open = true;
     }
 
     this.updateState({

@@ -1,21 +1,18 @@
-require("dotenv").config();
-
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
 const url = require("url");
+
+require("dotenv").config({
+  path: path.join(__dirname, ".env")
+});
 
 let win;
 
 function createWindow() {
   win = new BrowserWindow({width: 400, height: 800});
+  let env = process.env || {};
 
-  if (process.env.NODE_ENV === "production") {
-    win.loadURL(url.format({
-      pathname: path.join(__dirname, "index.html"),
-      protocol: "file:",
-      slashes: true
-    }));
-  } else {
+  if (env.NODE_ENV === "development") {
     win.loadURL(url.format({
       pathname: "localhost:3000",
       protocol: "http:",
@@ -23,6 +20,12 @@ function createWindow() {
     }));
 
     win.webContents.openDevTools();
+  } else {
+    win.loadURL(url.format({
+      pathname: path.join(__dirname, "index.html"),
+      protocol: "file:",
+      slashes: true
+    }));
   }
 
   win.on("closed", () => {
