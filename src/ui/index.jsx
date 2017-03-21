@@ -11,14 +11,19 @@ import TweetStream from "~/ui/lib/Twitter/Tweet/TweetStream";
 let root = document.getElementById("app");
 injectTapEventPlugin();
 
+let storageSet = Rx.Observable.create((observer) => {
+  window.ipc.on("storage-set", (evt, key) => {
+    observer.next(key);
+  });
+});
 let storageHas = Rx.Observable.create((observer) => {
   window.ipc.on("storage-has", (evt, key, hasKey) => {
     observer.next({ key, hasKey });
   });
 });
-let storageSet = Rx.Observable.create((observer) => {
-  window.ipc.on("storage-set", (evt, key) => {
-    observer.next(key);
+let storageGet = Rx.Observable.create((observer) => {
+  window.ipc.on("storage-get", (evt, key, value) => {
+    observer.next({ key, value });
   });
 });
 let token = Rx.Observable.create((observer) => {
@@ -46,12 +51,26 @@ storageSet
     window.location.reload();
   });
 
+let keyFilter = (observable) => 
+  (key) => 
+    observable.filter((payload) => payload.key === key);
+let storage = {
+  observables: {
+    get: keyFilter(storageGet),
+    has: keyFilter(storageHas),
+    set: keyFilter(storageSet)
+  },
+  get: (key) => window.ipc.send("storage-get", key),
+  has: (key) => window.ipc.send("storage-has", key),
+  set: (key, value) => window.ipc.send("storage-set", key, value)
+};
+
 storageHas
   .filter(({ key }) => key === "access_tokens")
   .subscribe(({ hasKey }) => {
     let app;
     if (hasKey) {
-      app = <App stream={stream} />;
+      app = <App stream={stream} storage={storage} />;
       window.ipc.send("init");
     } else {
       app = <Auth token={token} onSubmit={onAuthSubmit} />;

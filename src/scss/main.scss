@@ -2,6 +2,11 @@ body {
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     font-weight: 300;
     font-size: 12pt;
+    height: 100vh;
+}
+
+.full-height {
+    height: 100%;
 }
 
 .text-weight-300 {
@@ -18,4 +23,25 @@ body {
 
 .text-color-dark50 {
     color: rgba(#000,0.5);
+}
+
+.app-bar-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.list-scrollable {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.app-bar-icon {
+    color: #fff;
+    padding: 12px;
+    border: 10px;
+    width: 48px;
+    height: 48px;
+    box-sizing: border-box;
+    cursor: pointer;
 }

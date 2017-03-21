@@ -19,7 +19,7 @@ export default function() {
         <div className="row">
           <div className="col-xs-2">
             <TextField floatingLabelText="Authorization PIN" onChange={::this.changePIN} />
-            <RaisedButton label="Submit" primary={true} onClick={::this.submitPIN} />
+            <RaisedButton label="Submit" primary={true} onTouchTap={::this.submitPIN} />
           </div> {/* .col */}
         </div> {/* .row */}
       </div> {/* .fluid-container */}

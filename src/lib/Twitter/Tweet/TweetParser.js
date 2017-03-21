@@ -16,7 +16,7 @@ export default class TweetParser {
         var regexp = new RegExp(keyword + "([A-Z0-9]+)");
         raid = {
           code: sub.match(regexp)[1],
-          message: text.substring(0, idx),
+          messages: [text.substring(0, idx), sub],
           language
         };
       }

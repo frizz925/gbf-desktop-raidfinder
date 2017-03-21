@@ -26,7 +26,7 @@ export default function (item) {
         </div> {/* .row */}
         <div className="row">
           <div className="col-xs-12 text-color-dark50 text-size-sm">
-            {item.raid.message}
+            {item.raid.messages[0]}
           </div> {/* .col */}
         </div> {/* .row */}
       </ListItem>

@@ -1,10 +1,12 @@
 import Rx from "rxjs/Rx";
 import TweetChecker from "~/lib/Twitter/Tweet/TweetChecker";
+import TweetParser from "~/lib/Twitter/Tweet/TweetParser";
 const ipc = window.ipc;
 
 export default class TweetStream {
   constructor() {
     this.checker = new TweetChecker();
+    this.parser = new TweetParser();
   }
 
   getTweets() {
@@ -13,7 +15,10 @@ export default class TweetStream {
       ipc.on("new-tweet", (evt, payload) => {
         var tweet = payload.tweet;
         if (this.checkRaidTweet(tweet)) {
-          observer.next(tweet);
+          tweet = this.parseTweet(tweet);
+          if (tweet) {
+            observer.next(tweet);
+          }
         }
       });
 
@@ -26,5 +31,9 @@ export default class TweetStream {
 
   checkRaidTweet(tweet) {
     return this.checker.check(tweet);
+  }
+
+  parseTweet(tweet) {
+    return this.parser.parse(tweet);
   }
 }
