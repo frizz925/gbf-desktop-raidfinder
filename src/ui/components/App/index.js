@@ -1,6 +1,7 @@
 import { Component } from "react";
 import template from "./template.jsx";
 import BossDictionary from "~/lib/Twitter/Tweet/BossDictionary.json";
+import TweetParser from "~/lib/Twitter/Tweet/TweetParser";
 import each from "lodash/each";
 import map from "lodash/map";
 import assign from "lodash/assign";
@@ -10,17 +11,19 @@ export default class App extends Component {
     super(props);
     this.state = {
       tweets: [],
-      filter: false,
+      filter: null,
       snackbar: {
         message: "",
         open: false
       },
       dialog: {
-        open: false
+        open: false,
+        search: ""
       }
     };
     this.preferences = {};
     this.dictionary = BossDictionary.sort(::this.sortDictionary);
+    this.parser = new TweetParser();
     this.subscribeToTweets();
     this.subscribeToPreferences();
   }
@@ -46,15 +49,24 @@ export default class App extends Component {
         return match;
       })
       .subscribe(::this.onTweet);
+
+    this.props.twitter
+      .filter(({ url, action }) => {
+        return url === "search/tweets" &&
+          action === "search-raid-tweets";
+      })
+      .subscribe(({ result }) => {
+        this.updateState({
+          tweets: map(result.statuses, (tweet) => this.parser.parse(tweet))
+        });
+      });
   }
 
   subscribeToPreferences() {
     this.props.storage.observables.get("preferences")
       .subscribe((payload) => {
         this.preferences = payload.value;
-        this.updateState({
-          filter: this.preferences.filter
-        });
+        this.updateFilter(this.preferences.filter);
       });
     this.props.storage.get("preferences");
   }
@@ -97,12 +109,12 @@ export default class App extends Component {
   changeFilter(item) {
     return () => {
       this.updateState({
-        filter: item,
         dialog: assign(this.state.dialog, {
           open: false
         }),
-        tweets: []
       });
+
+      this.updateFilter(item);
 
       this.props.storage.set("preferences", assign(this.preferences, {
         filter: item
@@ -110,9 +122,40 @@ export default class App extends Component {
     };
   }
 
+  changeDialogSearch(evt, search) {
+    this.updateState({
+      dialog: assign(this.state.dialog, {
+        search
+      })
+    });
+  }
+
   updateState(newState) {
     var state = assign({}, this.state, newState);
     this.setState(state);
+  }
+
+  updateFilter(filter) {
+    let dialog = assign({}, this.state.dialog, {
+      search: ""
+    });
+
+    if (!filter) {
+      dialog.open = false;
+    }
+
+    this.updateState({
+      filter, dialog,
+      tweets: []
+    });
+
+    /*
+    // need to find a better and reliable method to pre-fetch the tweets
+    window.ipc.send("twitter-api-get", "search/tweets", {
+      q: filter.en + " OR " + filter.jp,
+      count: 50
+    }, "search-raid-tweets");
+    */
   }
 
   savePreferences(preferences) {

@@ -11,8 +11,8 @@ export default function (item) {
             <div className="pull-left">
               {item.tweet.user.screen_name}
               &nbsp;
-              <span className="text-color-dark50 text-size-xs">
-                {"(" + item.raid.language.toUpperCase() + ")"}
+              <span className="text-size-xs">
+                {item.raid.language == "en" ? "(" + item.raid.language.toUpperCase() + ")" : ""}
               </span>
               &nbsp;
               <span className="text-color-dark50 text-size-sm">

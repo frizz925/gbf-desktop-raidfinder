@@ -44,7 +44,7 @@ gulp.task("babel", function() {
   return gulp.src("src/**/*.{js,jsx}")
     .pipe(babel().on("error", (err) => {
       notify("Babel build error!");
-      throw new gutil.PluginError("[babel]", err);
+      console.error(err);
     }))
     .pipe(gulp.dest("dist"));
 });
@@ -57,7 +57,7 @@ gulp.task("sass", function() {
   return gulp.src("src/scss/**/*.scss")
     .pipe(sass().on("error", (err) => {
       notify("Sass build error!");
-      throw new gutil.PluginError("[sass]", err);
+      console.error(err);
     }))
     .pipe(gulp.dest("dist/css"))
     .pipe(browserSync.stream());

@@ -2,9 +2,11 @@ import { ipcMain } from "electron";
 import storage from "electron-json-storage";
 import TweetStream from "~/lib/Twitter/Tweet/TweetStream";
 import OAuthFactory from "~/lib/Twitter/Auth/OAuthFactory";
+import Twitter from "twitter";
 
 let sender;
 let stream;
+let twitter;
 let consumerKeys = {
   consumer_key: process.env.CONSUMER_KEY,
   consumer_secret: process.env.CONSUMER_SECRET
@@ -24,8 +26,14 @@ ipcMain.on("init", (evt) => {
       throw err;
     }
 
-    console.log("Main process", "access_tokens", tokens);
-    stream = new TweetStream(consumerKeys, tokens);
+    twitter = new Twitter({
+      consumer_key: consumerKeys.consumer_key,
+      consumer_secret: consumerKeys.consumer_secret,
+      access_token_key: tokens.oauth_token,
+      access_token_secret: tokens.oauth_token_secret
+    });
+
+    stream = new TweetStream(twitter);
     stream.getTweets().subscribe((payload) => {
       if (!sender) return;
       if (payload.type === "error") {
@@ -83,6 +91,19 @@ ipcMain.on("access-token-set-pin", (evt, requestToken, pin) => {
   });
 });
 
-module.exports = function() {
+ipcMain.on("twitter-api-get", (evt, url, params, action) => {
+  if (!twitter) {
+    throw new Error("Twitter client not initialized yet!");
+  }
+
+  twitter.get(url, params, (err, result) => {
+    if (err) {
+      throw err;
+    }
+    evt.sender.send("twitter-api", { url, params, result, action });
+  });
+});
+
+module.exports = function () {
   // do nothing
 };

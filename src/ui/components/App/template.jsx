@@ -1,5 +1,6 @@
 import React from "react";
 import AppBar from "material-ui/AppBar";
+import TextField from "material-ui/TextField";
 import Subheader from "material-ui/Subheader";
 import SelectField from "material-ui/SelectField";
 import MenuItem from "material-ui/MenuItem";
@@ -11,6 +12,7 @@ import IconMenu from "material-ui/IconMenu";
 import IconButton from "material-ui/IconButton";
 import Tweet from "~/ui/components/Tweet";
 import map from "lodash/map";
+import filter from "lodash/filter";
 
 export default function (items) {
   const dialogActions = [
@@ -19,13 +21,22 @@ export default function (items) {
       onTouchTap={this.changeDialogState(false)} />
   ];
 
-  const filter = this.state.filter || {};
+  const search = this.state.dialog.search;
+  const searchRegexp = new RegExp(search, "i");
+  const $filter = this.state.filter || {};
   const title = (
     <div style={{lineHeight: "24px", marginTop: "8px"}}>
-      <div className="text-size-sm">{filter.jp}</div>
-      <div className="text-size-xs">{filter.en}</div>
+      <div className="text-size-sm">{$filter.jp}</div>
+      <div className="text-size-xs">{$filter.en}</div>
     </div>
   );
+
+  const filteredDictionary = filter(this.dictionary, (item) => {
+    if (!search) return true;
+    return item.jp.match(searchRegexp) || item.en.match(searchRegexp);
+  });
+
+  const fullWidthStyle = { width: "100%" };
 
   return (
     <div className="full-height">
@@ -36,15 +47,24 @@ export default function (items) {
         onRightIconButtonTouchTap={::this.changeDialogState(true)}
         style={{position: "fixed", left: 0, top: 0}} />
       <Dialog
-        title="Change Filter"
+        title="Select Filter"
         actions={dialogActions}
         open={this.state.dialog.open}
         onRequestClose={this.changeDialogState(false)}
         autoScrollBodyContent={true}
-        contentStyle={{width: "100%"}}
-        bodyStyle={{padding: 0}}>
+        contentStyle={{width: "100%", marginTop: "-16px"}}
+        bodyStyle={{padding: 0}}
+        repositionOnUpdate={false}>
+        <div style={{padding: "0 10px"}}>
+          <TextField
+           name="filter"
+           inputStyle={fullWidthStyle}
+           style={fullWidthStyle}
+           onChange={::this.changeDialogSearch}
+           value={search} />
+        </div>
         <List style={{padding: 0}}>
-          {map(this.dictionary, (item, idx) => (
+          {map(filteredDictionary, (item, idx) => (
             <ListItem key={idx} onClick={::this.changeFilter(item)}>
               <div>{item.jp}</div>
               <div className="text-color-dark50 text-size-sm">{item.en}</div>
@@ -53,8 +73,8 @@ export default function (items) {
         </List>
       </Dialog>
       <List className="list-scrollable" style={{paddingTop: "64px", paddingBottom: 0}}>
-        {map(this.state.tweets, (item) => (
-          <Tweet key={item.tweet.id} item={item} snackbarMessage={::this.snackbarMessage} />
+        {map(this.state.tweets, (item, idx) => (
+          <Tweet key={idx} item={item} snackbarMessage={::this.snackbarMessage} />
         ))}
       </List>
       <Snackbar

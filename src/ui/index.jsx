@@ -31,6 +31,11 @@ let token = Rx.Observable.create((observer) => {
     observer.next(oauthToken);
   });
 });
+let twitter = Rx.Observable.create((observer) => {
+  window.ipc.on("twitter-api", (evt, payload) => {
+    observer.next(payload);
+  });
+});
 
 window.ipc.on("access-token-set-pin", (evt, accessTokens) => {
   console.log("GUI process", "access-token-set-pin", accessTokens);
@@ -70,7 +75,7 @@ storageHas
   .subscribe(({ hasKey }) => {
     let app;
     if (hasKey) {
-      app = <App stream={stream} storage={storage} />;
+      app = <App stream={stream} storage={storage} twitter={twitter} />;
       window.ipc.send("init");
     } else {
       app = <Auth token={token} onSubmit={onAuthSubmit} />;

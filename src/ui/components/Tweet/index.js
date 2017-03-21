@@ -17,8 +17,10 @@ export default class Tweet extends Component {
       return "now";
     } else if (relative < 3600) {
       return Math.round(relative / 60) + "m";
-    } else {
+    } else if (relative < 3600 * 24) {
       return Math.round(relative / 3600) + "h";
+    } else {
+      return Math.round(relative / 3600 / 24) + "d";
     }
   }
 
