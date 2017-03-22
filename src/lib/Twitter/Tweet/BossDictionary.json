@@ -1,135 +1,99 @@
 [
   {
-    "jp": "Lv30 アルバコア",
-    "en": "Lvl 30 Albacore"
+    "jp": "Lv20 グリフォン",
+    "en": "Lvl 20 Griffin"
   },
   {
-    "jp": "Lv30 アーフラー",
-    "en": "Lvl 30 Ahura (Hard)"
+    "jp": "Lv20 ザリチュナルフレイム",
+    "en": "Lvl 20 Zarchnal Flame"
   },
   {
-    "jp": "Lv30 火のエレメンタル",
-    "en": "Lvl 30 Fire Elemental"
+    "jp": "Lv30 アドウェルサ",
+    "en": "Lvl 30 Adversa"
   },
   {
-    "jp": "Lv30 覇壊機獣メカゾゴラ",
-    "en": "Lvl 30 Mecha Zogora"
+    "jp": "Lv30 エンシェントドラゴン",
+    "en": "Lvl 30 Ancient Dragon"
   },
   {
-    "jp": "Lv30 閃光壊獣キングマーバ",
-    "en": "Lvl 30 King Marva"
+    "jp": "Lv30 ゲイザー",
+    "en": "Lvl 30 Ogler"
   },
   {
-    "jp": "Lv30 クレイゴーレム",
-    "en": "Lvl 30 Clay Golem"
+    "jp": "Lv30 コロッサス",
+    "en": "Lvl 30 Colossus"
   },
   {
-    "jp": "Lv30 モンタギューガード",
-    "en": "Lvl 30 Montague Guard"
+    "jp": "Lv30 ザリチュナルフレイム",
+    "en": "Lvl 30 Zarchnal Flame"
   },
   {
-    "jp": "Lv30 カツウォヌス",
-    "en": "Lvl 30 Bonito"
+    "jp": "Lv30 セレスト",
+    "en": "Lvl 30 Celeste"
   },
   {
-    "jp": "Lv30 ウオノタユウ",
-    "en": "Lvl 30 Rising Sunfish"
+    "jp": "Lv30 ティアマト",
+    "en": "Lvl 30 Tiamat"
   },
   {
-    "jp": "Lv30 ヨグ＝ソトース",
-    "en": "Lvl 30 Yog-Sothoth (Hard)"
+    "jp": "Lv30 リヴァイアサン",
+    "en": "Lvl 30 Leviathan"
   },
   {
-    "jp": "Lv40 ヨグ＝ソトース",
-    "en": "Lvl 40 Yog-Sothoth (Very Hard)"
+    "jp": "Lv40 ゲイザー",
+    "en": "Lvl 40 Ogler"
   },
   {
-    "jp": "Lv40 アーフラー",
-    "en": "Lvl 40 Ahura (Very Hard)"
+    "jp": "Lv50 アドウェルサ",
+    "en": "Lvl 50 Adversa"
+  },
+  {
+    "jp": "Lv50 グガランナ",
+    "en": "Lvl 50 Gugalanna"
+  },
+  {
+    "jp": "Lv50 コロッサス",
+    "en": "Lvl 50 Colossus"
+  },
+  {
+    "jp": "Lv50 セレスト",
+    "en": "Lvl 50 Celeste"
+  },
+  {
+    "jp": "Lv50 ティアマト",
+    "en": "Lvl 50 Tiamat"
   },
   {
     "jp": "Lv50 ティアマト・マグナ",
     "en": "Lvl 50 Tiamat Omega"
   },
   {
-    "jp": "Lv50 オクシモロン",
-    "en": "Lvl 50 Oxymoron"
+    "jp": "Lv50 ユグドラシル",
+    "en": "Lvl 50 Yggdrasil"
   },
   {
-    "jp": "Lv50 モドリカツウォヌス",
-    "en": "Lvl 50 Revenge of Bonito"
+    "jp": "Lv50 リヴァイアサン",
+    "en": "Lvl 50 Leviathan"
   },
   {
-    "jp": "Lv50 覇壊獣ゾゴラ",
-    "en": "Lvl 50 Juggernaut Zogora"
-  },
-  {
-    "jp": "Lv50 守畏禍",
-    "en": "Lvl 50 Custos Citrullus"
-  },
-  {
-    "jp": "Lv50 神王モンタギュー",
-    "en": "Lvl 50 Lord Montague"
-  },
-  {
-    "jp": "Lv50 マヒシャ",
-    "en": "Lvl 50 Mahisha (Very Hard)"
-  },
-  {
-    "jp": "Lv50 ヴェセラゴ",
-    "en": "Lvl 50 Veselago"
-  },
-  {
-    "jp": "Lv50 覇壊神ダイモン",
-    "en": "Lvl 50 Lord Daimon"
-  },
-  {
-    "jp": "Lv50 ベオウルフ",
-    "en": "Lvl 50 Grendel (Very Hard)"
-  },
-  {
-    "jp": "Lv50 トレント",
-    "en": "Lvl 50 Treant"
-  },
-  {
-    "jp": "Lv50 超巨大アルバコア",
-    "en": "Lvl 50 Giant Albacore"
-  },
-  {
-    "jp": "Lv60 白虎",
-    "en": "Lvl 60 Baihu"
-  },
-  {
-    "jp": "Lv60 リヴァイアサン・マグナ",
-    "en": "Lvl 60 Leviathan Omega"
-  },
-  {
-    "jp": "Lv60 マヒシャ",
-    "en": "Lvl 60 Mahisha (Extreme)"
-  },
-  {
-    "jp": "Lv60 ベオウルフ",
-    "en": "Lvl 60 Grendel (Extreme)"
-  },
-  {
-    "jp": "Lv60 朱雀",
-    "en": "Lvl 60 Zhuque"
-  },
-  {
-    "jp": "Lv60 玄武",
-    "en": "Lvl 60 Xuanwu"
+    "jp": "Lv60 グガランナ",
+    "en": "Lvl 60 Gugalanna"
   },
   {
     "jp": "Lv60 ユグドラシル・マグナ",
     "en": "Lvl 60 Yggdrasil Omega"
   },
   {
-    "jp": "Lv60 青竜",
-    "en": "Lvl 60 Qinglong"
+    "jp": "Lv60 リヴァイアサン・マグナ",
+    "en": "Lvl 60 Leviathan Omega"
   },
   {
     "jp": "Lv70 コロッサス・マグナ",
     "en": "Lvl 70 Colossus Omega"
+  },
+  {
+    "jp": "Lv75 エメラルドホーン",
+    "en": "Lvl 75 Viridian Horn"
   },
   {
     "jp": "Lv75 シュヴァリエ・マグナ",
@@ -140,104 +104,16 @@
     "en": "Lvl 75 Celeste Omega"
   },
   {
-    "jp": "Lv75 スーペルヒガンテ",
-    "en": "Lvl 75 Supergigante (Extreme+)"
+    "jp": "Lv90 ベラドンナ",
+    "en": "Lvl 90 Bella Donna"
   },
   {
-    "jp": "Lv75 ヴァルカンライオ",
-    "en": "Lvl 75 Volcanrio (Extreme+)"
+    "jp": "Lv95 ベラドンナ",
+    "en": "Lvl 95 Bella Donna"
   },
   {
-    "jp": "Lv75 エメラルドホーン",
-    "en": "Lvl 75 Viridian Horn (Extreme+)"
-  },
-  {
-    "jp": "Lv90 アグニス",
-    "en": "Lvl 90 Agni"
-  },
-  {
-    "jp": "Lv90 ティターン",
-    "en": "Lvl 90 Titan"
-  },
-  {
-    "jp": "Lv90 ゼピュロス",
-    "en": "Lvl 90 Zephyrus"
-  },
-  {
-    "jp": "Lv90 ネプチューン",
-    "en": "Lvl 90 Neptune"
-  },
-  {
-    "jp": "Lv100 黄龍",
-    "en": "Lvl 100 Huanglong"
-  },
-  {
-    "jp": "Lv100 黒麒麟",
-    "en": "Lvl 100 Qilin"
-  },
-  {
-    "jp": "Lv100 コロッサス・マグナ",
-    "en": "Lvl 100 Colossus Omega"
-  },
-  {
-    "jp": "Lv100 リヴァイアサン・マグナ",
-    "en": "Lvl 100 Leviathan Omega"
-  },
-  {
-    "jp": "Lv100 ユグドラシル・マグナ",
-    "en": "Lvl 100 Yggdrasil Omega"
-  },
-  {
-    "jp": "Lv100 フラム＝グラス",
-    "en": "Lvl 100 Twin Elements"
-  },
-  {
-    "jp": "Lv100 セレスト・マグナ",
-    "en": "Lvl 100 Celeste Omega"
-  },
-  {
-    "jp": "Lv100 マキュラ・マリウス",
-    "en": "Lvl 100 Macula Marius"
-  },
-  {
-    "jp": "Lv100 ティアマト・マグナ＝エア",
-    "en": "Lvl 100 Tiamat Omega Ayr"
-  },
-  {
-    "jp": "Lv100 プロトバハムート",
-    "en": "Lvl 100 Proto Bahamut"
-  },
-  {
-    "jp": "Lv100 ジ・オーダー・グランデ",
-    "en": "Lvl 100 Grand Order"
-  },
-  {
-    "jp": "Lv100 メドゥーサ",
-    "en": "Lvl 100 Medusa"
-  },
-  {
-    "jp": "Lv100 ナタク",
-    "en": "Lvl 100 Nezha"
-  },
-  {
-    "jp": "Lv100 シュヴァリエ・マグナ",
-    "en": "Lvl 100 Luminiera Omega"
-  },
-  {
-    "jp": "Lv100 オーディン",
-    "en": "Lvl 100 Odin"
-  },
-  {
-    "jp": "Lv100 ガルーダ",
-    "en": "Lvl 100 Garuda"
-  },
-  {
-    "jp": "Lv100 バアル",
-    "en": "Lvl 100 Baal"
-  },
-  {
-    "jp": "Lv100 グラニ",
-    "en": "Lvl 100 Grani"
+    "jp": "Lv100 Dエンジェル・オリヴィエ",
+    "en": "Lvl 100 Dark Angel Olivia"
   },
   {
     "jp": "Lv100 アテナ",
@@ -248,47 +124,171 @@
     "en": "Lvl 100 Apollo"
   },
   {
-    "jp": "Lv100 Dエンジェル・オリヴィエ",
-    "en": "Lvl 100 Dark Angel Olivia"
+    "jp": "Lv100 ウリエル",
+    "en": "Lvl 100 Uriel"
+  },
+  {
+    "jp": "Lv100 オーディン",
+    "en": "Lvl 100 Odin"
+  },
+  {
+    "jp": "Lv100 ガブリエル",
+    "en": "Lvl 100 Gabriel"
+  },
+  {
+    "jp": "Lv100 ガルーダ",
+    "en": "Lvl 100 Garuda"
+  },
+  {
+    "jp": "Lv100 グラニ",
+    "en": "Lvl 100 Grani"
+  },
+  {
+    "jp": "Lv100 コロッサス・マグナ",
+    "en": "Lvl 100 Colossus Omega"
+  },
+  {
+    "jp": "Lv100 ゴライアス",
+    "en": "Lvl 100 Goliath"
+  },
+  {
+    "jp": "Lv100 サンダルフォン",
+    "en": "Lvl 100 Sandalphon"
+  },
+  {
+    "jp": "Lv100 シュヴァリエ・マグナ",
+    "en": "Lvl 100 Luminiera Omega"
+  },
+  {
+    "jp": "Lv100 ジ・オーダー・グランデ",
+    "en": "Lvl 100 Grand Order"
+  },
+  {
+    "jp": "Lv100 スノウマン",
+    "en": "Lvl 100 Snowman"
+  },
+  {
+    "jp": "Lv100 セレスト・マグナ",
+    "en": "Lvl 100 Celeste Omega"
+  },
+  {
+    "jp": "Lv100 ゼノ・イフリート",
+    "en": "Lvl 100 Xeno Ifrit"
+  },
+  {
+    "jp": "Lv100 ゼノ・ウォフマナフ",
+    "en": "Lvl 100 Xeno Vohu Manah"
+  },
+  {
+    "jp": "Lv100 ティアマト・マグナ＝エア",
+    "en": "Lvl 100 Tiamat Omega Ayr"
+  },
+  {
+    "jp": "Lv100 ナタク",
+    "en": "Lvl 100 Nezha"
+  },
+  {
+    "jp": "Lv100 バアル",
+    "en": "Lvl 100 Baal"
+  },
+  {
+    "jp": "Lv100 フラム＝グラス",
+    "en": "Lvl 100 Twin Elements"
+  },
+  {
+    "jp": "Lv100 プロトバハムート",
+    "en": "Lvl 100 Proto Bahamut"
+  },
+  {
+    "jp": "Lv100 マキュラ・マリウス",
+    "en": "Lvl 100 Macula Marius"
+  },
+  {
+    "jp": "Lv100 ミカエル",
+    "en": "Lvl 100 Michael"
+  },
+  {
+    "jp": "Lv100 メドゥーサ",
+    "en": "Lvl 100 Medusa"
+  },
+  {
+    "jp": "Lv100 ユグドラシル・マグナ",
+    "en": "Lvl 100 Yggdrasil Omega"
+  },
+  {
+    "jp": "Lv100 ラファエル",
+    "en": "Lvl 100 Raphael"
   },
   {
     "jp": "Lv100 リッチ",
     "en": "Lvl 100 Lich"
   },
   {
+    "jp": "Lv100 リヴァイアサン・マグナ",
+    "en": "Lvl 100 Leviathan Omega"
+  },
+  {
+    "jp": "Lv100 黄龍",
+    "en": "Lvl 100 Huanglong"
+  },
+  {
+    "jp": "Lv100 黒麒麟",
+    "en": "Lvl 100 Qilin"
+  },
+  {
     "jp": "Lv110 ローズクイーン",
     "en": "Lvl 110 Rose Queen"
-  },
-  {
-    "jp": "Lv120 メドゥーサ",
-    "en": "Lvl 120 Medusa"
-  },
-  {
-    "jp": "Lv120 フラム＝グラス",
-    "en": "Lvl 120 Twin Elements"
   },
   {
     "jp": "Lv120 Dエンジェル・オリヴィエ",
     "en": "Lvl 120 Dark Angel Olivia"
   },
   {
+    "jp": "Lv120 アヌビス",
+    "en": "Lvl 120 Anubis"
+  },
+  {
     "jp": "Lv120 アポロン",
     "en": "Lvl 120 Apollo"
   },
   {
-    "jp": "Lv120 マキュラ・マリウス",
-    "en": "Lvl 120 Macula Marius"
+    "jp": "Lv120 カー・オン",
+    "en": "Lvl 120 Ca Ong"
+  },
+  {
+    "jp": "Lv120 ギルガメッシュ",
+    "en": "Lvl 120 Gilgamesh"
   },
   {
     "jp": "Lv120 ナタク",
     "en": "Lvl 120 Nezha"
   },
   {
-    "jp": "Lv150 プロトバハムート",
-    "en": "Lvl 150 Proto Bahamut (Impossible)"
+    "jp": "Lv120 バイヴカハ",
+    "en": "Lvl 120 Morrigna"
   },
   {
-    "jp": "アイリーン＆メアリー",
-    "en": "Irene and Merry"
+    "jp": "Lv120 フラム＝グラス",
+    "en": "Lvl 120 Twin Elements"
+  },
+  {
+    "jp": "Lv120 プロメテウス",
+    "en": "Lvl 120 Prometheus"
+  },
+  {
+    "jp": "Lv120 ヘクトル",
+    "en": "Lvl 120 Hector"
+  },
+  {
+    "jp": "Lv120 マキュラ・マリウス",
+    "en": "Lvl 120 Macula Marius"
+  },
+  {
+    "jp": "Lv120 メドゥーサ",
+    "en": "Lvl 120 Medusa"
+  },
+  {
+    "jp": "Lv150 プロトバハムート",
+    "en": "Lvl 150 Proto Bahamut"
   }
 ]
