@@ -1,4 +1,4 @@
-# gbf-desktop-raidfinder
+# Granblue Desktop Raidfinder
 
 ### Check the [releases](https://github.com/Frizz925/gbf-desktop-raidfinder/releases) page for download!
 
