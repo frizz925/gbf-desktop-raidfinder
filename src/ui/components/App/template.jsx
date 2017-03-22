@@ -39,7 +39,7 @@ export default function (items) {
   const fullWidthStyle = { width: "100%" };
 
   return (
-    <div className="full-height">
+    <div>
       <AppBar
         title={title}
         showMenuIconButton={false}
@@ -61,7 +61,8 @@ export default function (items) {
            inputStyle={fullWidthStyle}
            style={fullWidthStyle}
            onChange={::this.changeDialogSearch}
-           value={search} />
+           value={search}
+           hintText="Search" />
         </div>
         <List style={{padding: 0}}>
           {map(filteredDictionary, (item, idx) => (
@@ -72,7 +73,7 @@ export default function (items) {
           ))}
         </List>
       </Dialog>
-      <List className="list-scrollable" style={{paddingTop: "64px", paddingBottom: 0}}>
+      <List className="list-scrollable" style={{marginTop: "64px", padding: 0}}>
         {map(this.state.tweets, (item, idx) => (
           <Tweet key={idx} item={item} snackbarMessage={::this.snackbarMessage} />
         ))}

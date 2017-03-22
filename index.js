@@ -10,9 +10,8 @@ let win;
 
 function createWindow() {
   win = new BrowserWindow({width: 400, height: 800});
-  let env = process.env || {};
 
-  if (env.NODE_ENV === "development") {
+  if (process.env.NODE_ENV === "development") {
     win.loadURL(url.format({
       pathname: "localhost:3000",
       protocol: "http:",
