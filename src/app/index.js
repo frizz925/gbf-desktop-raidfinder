@@ -3,8 +3,9 @@ import storage from "electron-json-storage";
 import TweetStream from "~/lib/Twitter/Tweet/TweetStream";
 import OAuthFactory from "~/lib/Twitter/Auth/OAuthFactory";
 import Twitter from "twitter";
+import each from "lodash/each";
 
-let sender;
+const senders = [];
 let stream;
 let twitter;
 let consumerKeys = {
@@ -13,8 +14,12 @@ let consumerKeys = {
 };
 let factory = new OAuthFactory(consumerKeys);
 
+function broadcastToSenders(callback) {
+  each(senders, callback);
+}
+
 ipcMain.on("init", (evt) => {
-  sender = evt.sender;
+  senders.push(evt.sender);
 
   // do not re-initialize stream
   if (stream) return;
@@ -35,12 +40,13 @@ ipcMain.on("init", (evt) => {
 
     stream = new TweetStream(twitter);
     stream.getTweets().subscribe((payload) => {
-      if (!sender) return;
-      if (payload.type === "error") {
-        sender.send("error", payload);
-      } else {
-        sender.send("new-tweet", payload);
-      }
+      broadcastToSenders((sender) => {
+        if (payload.type === "error") {
+          sender.send("error", payload);
+        } else {
+          sender.send("new-tweet", payload);
+        }
+      });
     });
   });
 });
