@@ -1,7 +1,8 @@
 {
   "name": "gbf-desktop-raidfinder",
+  "productName": "Granblue Desktop Raidfinder",
   "version": "1.0.0",
-  "description": "GBF raidfinder for desktop",
+  "description": "Granblue raidfinder for desktop",
   "main": "index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production gulp build && electron-packager --out build --overwrite .",
