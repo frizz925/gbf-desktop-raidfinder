@@ -4,7 +4,7 @@ import Divider from "material-ui/Divider";
 
 export default function (item) {
   return (
-    <div>
+    <div className={(item.raid.read) ? "tweet-read" : ""}>
       <ListItem onClick={::this.copyCode} style={{cursor: "pointer"}}>
         <div className="row">
           <div className="col-xs-12 clearfix">

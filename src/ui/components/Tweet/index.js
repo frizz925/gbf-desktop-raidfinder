@@ -3,10 +3,16 @@ import template from "./template.jsx";
 import moment from "moment";
 
 export default class Tweet extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   copyCode() {
     var item = this.props.item;
+    item.raid.read = true;
     window.clipboard.writeText(item.raid.code);
     this.props.snackbarMessage(item.raid.code + " copied to clipboard");
+    this.forceUpdate();
   }
 
   relativeTime(time) {
